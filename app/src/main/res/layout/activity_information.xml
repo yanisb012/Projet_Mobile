@@ -1,0 +1,221 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_green">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/fond_rond_header"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:gravity="center_vertical|center"
+            android:elevation="4dp"
+            android:layout_marginBottom="20dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/logofsi"
+                android:scaleType="fitCenter"
+                android:layout_marginEnd="10dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/lienAccueili"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Accueil  "
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:padding="8dp"
+                    android:onClick="AccesAccueili"/>
+
+                <TextView
+                    android:id="@+id/lienBilani"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mes Bilans  "
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:padding="8dp"
+                    android:onClick="AccesBilani"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/boutonDecoi"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icone_deco"
+                android:scaleType="fitCenter"
+                android:onClick="decoi"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mes Informations"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/dark_green"
+            android:gravity="center"
+            android:layout_marginBottom="30dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="50dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Étudiant"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@color/dark_green"
+                android:padding="14dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center" />
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1"
+                android:background="@drawable/fond_rond"
+                android:padding="16dp"
+                android:layout_marginBottom="25dp"
+                android:elevation="5dp">
+                <TableRow>
+                    <TextView android:text="Nom : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <TextView android:id="@+id/nom" android:textColor="@color/black" />
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="Prénom : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <TextView android:id="@+id/prenom" android:textColor="@color/black" />
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="Téléphone : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <TextView android:id="@+id/tel" android:textColor="@color/black" />
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="Adresse : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <TextView android:id="@+id/adresse" android:textColor="@color/black"/>
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="Mail : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <TextView android:id="@+id/mail" android:textColor="@color/black"/>
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Entreprise"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@color/dark_green"
+                android:padding="14dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center" />
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1"
+                android:background="@drawable/fond_rond"
+                android:padding="16dp"
+                android:layout_marginBottom="25dp"
+                android:elevation="5dp">
+                <TableRow>
+                    <TextView android:text="Nom : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <TextView android:id="@+id/noment"  android:textColor="@color/black"/>
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="Adresse : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <TextView android:id="@+id/adrent"  android:textColor="@color/black"/>
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maître d'Apprentissage"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@color/dark_green"
+                android:padding="14dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center" />
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1"
+                android:background="@drawable/fond_rond"
+                android:padding="16dp"
+                android:layout_marginBottom="25dp"
+                android:elevation="5dp">
+                <TableRow>
+                    <TextView android:text="Nom : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <TextView android:id="@+id/nommai"  android:textColor="@color/black"/>
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="Prénom : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <TextView android:id="@+id/premai"  android:textColor="@color/black"/>
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="Téléphone : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <TextView android:id="@+id/telmai"  android:textColor="@color/black"/>
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="Mail : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <TextView android:id="@+id/mailmai"  android:textColor="@color/black"/>
+                </TableRow>
+            </TableLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tuteur École"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="@color/dark_green"
+                android:padding="14dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center" />
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1"
+                android:background="@drawable/fond_rond"
+                android:padding="16dp"
+                android:layout_marginBottom="25dp"
+                android:elevation="5dp">
+                <TableRow>
+                    <TextView android:text="Nom : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <TextView android:id="@+id/nomtut"  android:textColor="@color/black"/>
+                </TableRow>
+                <TableRow>
+                    <TextView android:text="Prénom : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <TextView android:id="@+id/pretut"  android:textColor="@color/black"/>
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
