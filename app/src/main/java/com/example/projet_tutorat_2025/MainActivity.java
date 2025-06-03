@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private boolean isInputSafe(String input) {
-        return !input.contains("'") && !input.contains("\"") && !input.contains(";") && !input.contains("--");
+        return !input.contains("'") && !input.contains("\"") && !input.contains(";") && !input.contains("=")&& !input.contains("{")&& !input.contains("(");
     }
 
     @Override
