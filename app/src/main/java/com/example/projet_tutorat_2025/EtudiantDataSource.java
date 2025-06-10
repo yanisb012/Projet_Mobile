@@ -73,29 +73,7 @@ public class EtudiantDataSource {
 
     public void updateEtudiant(Etudiant etudiant) {
         ContentValues values = new ContentValues();
-        values.put("id", etudiant.getId());
-        values.put("nomEtu", etudiant.getNom());
-        values.put("preEtu", etudiant.getPrenom());
         values.put("mailEtu", etudiant.getMail());
-        values.put("telEtu", etudiant.getTel());
-        values.put("adrEtu", etudiant.getAdresse());
-        values.put("cpEtu", etudiant.getCodePostal());
-        values.put("vilEtu", etudiant.getVille());
-        values.put("logEtu", etudiant.getLogin());
-
-        values.put("nomMaitre", etudiant.getNomMaitre());
-        values.put("preMaitre", etudiant.getPrenomMaitre());
-        values.put("telMaitre", etudiant.getTelMaitre());
-        values.put("mailMaitre", etudiant.getMailMaitre());
-
-        values.put("nomEnt", etudiant.getNomEntreprise());
-        values.put("adrEnt", etudiant.getAdresseEntreprise());
-        values.put("cpEnt", etudiant.getCodePostalEntreprise());
-        values.put("vilEnt", etudiant.getVilleEntreprise());
-
-        values.put("nomTut", etudiant.getNomTuteur());
-        values.put("preTut", etudiant.getPrenomTuteur());
-        values.put("telTut", etudiant.getTelTuteur());
 
 
 

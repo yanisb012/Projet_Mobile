@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +19,7 @@ public class InformationActivity extends AppCompatActivity {
     private int idEtu;
     TextView lienAccueili, lienBilansi;
     ImageView boutonDecoi;
+    private Button BoutonEnregistrer;
     private TextView nomEtudiant, prenomEtudiant, telEtudiant, adresse;
     private EditText emailEtudiant;
     private TextView nomMaitre, prenomMaitre, telMaitre, mailMaitre;
@@ -33,6 +35,7 @@ public class InformationActivity extends AppCompatActivity {
         lienAccueili= findViewById(R.id.lienAccueili);
         lienBilansi = findViewById(R.id.lienBilani);
         boutonDecoi = findViewById(R.id.boutonDecoi);
+        BoutonEnregistrer=findViewById(R.id.BoutonEnregistrer);
 
         initialisation();
     }
@@ -125,9 +128,25 @@ public class InformationActivity extends AppCompatActivity {
             finish();
         };
 
+        View.OnClickListener btnEnregistrer = v -> {
+            String nouveauMail=emailEtudiant.getText().toString();
+            //Récupére l'objet etudiant
+            Etudiant etudiantUpdate =etudiantBdd.getEtudiantById(idEtu);
+            //Maj l'étudiant si pas vide
+            if (etudiantUpdate !=null) {
+                etudiantUpdate.setMail(nouveauMail);
+                etudiantBdd.updateEtudiant(etudiantUpdate);
+                Toast.makeText(InformationActivity.this, "Adresse mail mise à jour", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                Toast.makeText(InformationActivity.this, "Erreur dans la modification du mail", Toast.LENGTH_SHORT).show();
+            }
+        };
+
         lienAccueili.setOnClickListener(AccueilListener);
         lienBilansi.setOnClickListener(bilanListener);
         boutonDecoi.setOnClickListener(decoListener);
+        BoutonEnregistrer.setOnClickListener(btnEnregistrer);
 
     }
 }
