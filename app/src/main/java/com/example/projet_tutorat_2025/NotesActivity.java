@@ -16,6 +16,7 @@ public class NotesActivity extends AppCompatActivity {
     TextView lienAccueil, lienInfos;
     private TextView datebilan1,noteEnt1, noteDossier1, noteOral1, moyenne1,remarque1;
     private TextView datebilan2,noteDossier2, noteOral2, moyenne2, remarque2, sujetmemoire;
+    private TextView moyennetotal;
     ImageView boutonDeco;
     EtudiantDataSource etudiantBdd = new EtudiantDataSource(this);
     BilansDataSource bilanBdd = new BilansDataSource(this);
@@ -51,6 +52,8 @@ public class NotesActivity extends AppCompatActivity {
         remarque2 = findViewById(R.id.remarque2);
         sujetmemoire = findViewById(R.id.sujetMemoire);
 
+        moyennetotal=findViewById(R.id.moyennetotale);
+
         Bilans bilans = bilanBdd.getBilanByEtudiantId(idEtu);
 
         if (bilans != null) {
@@ -67,6 +70,12 @@ public class NotesActivity extends AppCompatActivity {
             moyenne2.setText(String.format(Locale.getDefault(), "%.2f", bilans.getMoyenne2()));
             sujetmemoire.setText(bilans.getSujetmemoire());
             remarque2.setText(bilans.getRemarque2());
+
+
+            double moyenne1=bilans.getMoyenne();
+            double moyenne2=bilans.getMoyenne2();
+            double moyennetotale=(moyenne1*4+moyenne2*6)/10;
+            moyennetotal.setText(String.format(Locale.getDefault(), "%.2f", moyennetotale));
         }
         else {
             datebilan1.setText("Aucune donnée à afficher");
@@ -82,6 +91,8 @@ public class NotesActivity extends AppCompatActivity {
             moyenne2.setText("Aucune donnée à afficher");
             sujetmemoire.setText("Aucune donnée à afficher");
             remarque2.setText("Aucune donnée à afficher");
+
+            moyennetotal.setText("Aucune donnée à afficher");
         }
 
 

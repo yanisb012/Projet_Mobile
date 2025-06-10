@@ -129,10 +129,10 @@ public class InformationActivity extends AppCompatActivity {
         };
 
         View.OnClickListener btnEnregistrer = v -> {
-            String nouveauMail=emailEtudiant.getText().toString();
-            //Récupére l'objet etudiant
+            String nouveauMail= emailEtudiant.getText().toString();
+
             Etudiant etudiantUpdate =etudiantBdd.getEtudiantById(idEtu);
-            //Maj l'étudiant si pas vide
+
             if (etudiantUpdate !=null) {
                 etudiantUpdate.setMail(nouveauMail);
                 etudiantBdd.updateEtudiant(etudiantUpdate);
