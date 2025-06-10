@@ -13,8 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AccueilActivity extends AppCompatActivity {
     EtudiantDataSource dataSource;
     private String nomEtu;
+    //Pour stocker l'id récupéré via mainActivity
     private int idEtu;
-
     private TextView affichagenom;
     private Button boutonInfo;
     private Button boutonNotes;
@@ -26,10 +26,12 @@ public class AccueilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
+
+        //Récupère les données envoyés par MainActivity avec Intent
         nomEtu = getIntent().getStringExtra("nomEtu");
         idEtu = getIntent().getIntExtra("idEtudiant", -1);
 
-        Log.d("AccueilActivity", "Nom de l'utilisateur : " + nomEtu +" | ID : " + idEtu);
+        //Ouvre connexion bdd etudiant
         dataSource = new EtudiantDataSource(this);
         dataSource.open();
 

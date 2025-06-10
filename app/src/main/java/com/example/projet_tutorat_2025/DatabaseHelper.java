@@ -12,7 +12,7 @@
         public static final String TABLE_ETUDIANT = "Etudiant";
         public static final String TABLE_BILANS = "Bilans";
         private static final String DATABASE_NAME = "FSI.db";
-        private static final int DATABASE_VERSION = 26;
+        private static final int DATABASE_VERSION = 29; //Incrémenter de 1 pour maj de la structure
 
 
         private static final String DATABASE_CREATE_ETUDIANT = "CREATE TABLE IF NOT EXISTS "
@@ -34,7 +34,8 @@
                 + "cpEnt TEXT, "
                 + "vilEnt TEXT,"
                 + "nomTut TEXT, "
-                + "preTut TEXT);";
+                + "preTut TEXT,"
+                + "telTut TEXT);";
 
 
         private static final String DATABASE_CREATE_BILAN = "CREATE TABLE IF NOT EXISTS "
@@ -72,6 +73,7 @@
             database.execSQL(DATABASE_CREATE_BILAN);
         }
 
+        //Appelé quand on augmente la version de la BDD et recréer les tables à jour
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             Log.w(DatabaseHelper.class.getName(),

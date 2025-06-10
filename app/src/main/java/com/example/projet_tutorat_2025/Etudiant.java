@@ -57,6 +57,8 @@ public class Etudiant {
     private String nomTuteur;
     @SerializedName("preTut")
     private String prenomTuteur;
+    @SerializedName("telTut")
+    private String telTuteur;
 
 
     private boolean success;
@@ -71,7 +73,7 @@ public class Etudiant {
         this.success = success;
     }
 
-    public Etudiant(int id, String nom, String prenom, String mail, String tel, String adresse, String codePostal, String ville, String login, String nomEntreprise, String adresseEntreprise, String codePostalEntreprise, String villeEntreprise,String nomMaitre, String prenomMaitre, String telMaitre, String mailMaitre, String nomTuteur, String prenomTuteur, boolean success) {
+    public Etudiant(int id, String nom, String prenom, String mail, String tel, String adresse, String codePostal, String ville, String login, String nomEntreprise, String adresseEntreprise, String codePostalEntreprise, String villeEntreprise,String nomMaitre, String prenomMaitre, String telMaitre, String mailMaitre, String nomTuteur, String prenomTuteur, String telTuteur, boolean success) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -91,6 +93,7 @@ public class Etudiant {
         this.mailMaitre = mailMaitre;
         this.nomTuteur = nomTuteur;
         this.prenomTuteur = prenomTuteur;
+        this.telTuteur=telTuteur;
         this.success = success;
     }
 
@@ -218,6 +221,14 @@ public class Etudiant {
 
     public void setPrenomTuteur(String prenomTuteur) {
         this.prenomTuteur = prenomTuteur;
+    }
+
+    public String getTelTuteur() {
+        return telTuteur;
+    }
+
+    public void setTelTuteur(String telTuteur) {
+        this.telTuteur = telTuteur;
     }
 
     @Override

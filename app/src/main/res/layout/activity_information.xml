@@ -116,8 +116,8 @@
                     <TextView android:id="@+id/adresse" android:textColor="@color/black"/>
                 </TableRow>
                 <TableRow>
-                    <TextView android:text="Mail : " android:textStyle="bold" android:textColor="@color/dark_green" />
-                    <TextView android:id="@+id/mail" android:textColor="@color/black"/>
+                    <EditText android:text="Mail : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <EditText android:id="@+id/mail" android:textColor="@color/black"/>
                 </TableRow>
             </TableLayout>
 
@@ -215,7 +215,22 @@
                     <TextView android:text="Prénom : " android:textStyle="bold" android:textColor="@color/dark_green" />
                     <TextView android:id="@+id/pretut"  android:textColor="@color/black"/>
                 </TableRow>
+                <TableRow>
+                    <TextView android:text="Téléphone : " android:textStyle="bold" android:textColor="@color/dark_green" />
+                    <TextView android:id="@+id/teltut"  android:textColor="@color/black"/>
+                </TableRow>
+
             </TableLayout>
+            <Button
+                android:id="@+id/BoutonEnregistrer"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="Enregistrer la modification"
+                android:backgroundTint="@color/dark_green"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:layout_marginBottom="15dp"
+                android:layout_gravity="center_horizontal" />/>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

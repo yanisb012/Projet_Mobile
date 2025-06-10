@@ -16,14 +16,17 @@ public class EtudiantDataSource {
     private SQLiteDatabase database;
     private DatabaseHelper dbHelper;
 
+    // Constructeur : instancie le helper de base de données
     public EtudiantDataSource(Context context) {
         dbHelper = new DatabaseHelper(context);
     }
 
+    // Ouvre la base de données en mode écriture
     public void open() throws SQLException {
         database = dbHelper.getWritableDatabase();
     }
 
+    // Ferme la base de donnéees
     public void close() {
         dbHelper.close();
     }
@@ -52,8 +55,9 @@ public class EtudiantDataSource {
 
         values.put("nomTut", etudiant.getNomTuteur());
         values.put("preTut", etudiant.getPrenomTuteur());
+        values.put("telTut", etudiant.getTelTuteur());
 
-
+        // Exécute la mise à jour
         int id = (int) database.insert(TABLE_ETUDIANT, null, values);
         etudiant.setId(id);
 
@@ -91,6 +95,7 @@ public class EtudiantDataSource {
 
         values.put("nomTut", etudiant.getNomTuteur());
         values.put("preTut", etudiant.getPrenomTuteur());
+        values.put("telTut", etudiant.getTelTuteur());
 
 
 
@@ -105,6 +110,7 @@ public class EtudiantDataSource {
         }
     }
 
+    // Convertit un curseur SQLite en objet Bilans Java
     private Etudiant cursorToEtudiant(Cursor cursor) {
         int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
         String nomEtu = cursor.getString(cursor.getColumnIndexOrThrow("nomEtu"));
@@ -128,19 +134,20 @@ public class EtudiantDataSource {
 
         String nomTut = cursor.getString(cursor.getColumnIndexOrThrow("nomTut"));
         String preTut = cursor.getString(cursor.getColumnIndexOrThrow("preTut"));
+        String telTut = cursor.getString(cursor.getColumnIndexOrThrow("telTut"));
 
 
 
         return new Etudiant(id, nomEtu, preEtu, mailEtu, telEtu, adrEtu, cpEnt, vilEtu, logEtu,
                 nomEnt, adrEnt, cpEnt, vilEnt,
-                nomMaitre, prenMaitre, telMaitre, mailMaitre,nomTut, preTut, true);
+                nomMaitre, prenMaitre, telMaitre, mailMaitre,nomTut, preTut,telTut, true);
     }
 
     public ArrayList<Etudiant> getAllEtudiants() {
         ArrayList<Etudiant> etudiants = new ArrayList<>();
         Cursor cursor = database.query(true, TABLE_ETUDIANT, new String[]{
                         "id", "nomEtu", "preEtu", "mailEtu", "telEtu", "adrEtu", "cpEtu", "vilEtu", "logEtu",
-                        "nomMaitre", "preMaitre", "telMaitre", "mailMaitre","nomTut","preTut",
+                        "nomMaitre", "preMaitre", "telMaitre", "mailMaitre","nomTut","preTut","telTut",
                         "nomEnt", "adrEnt", "cpEnt", "vilEnt"},
                 null, null, null, null, null, null);
 
@@ -156,7 +163,7 @@ public class EtudiantDataSource {
         Etudiant etudiant = null;
         Cursor cursor = database.query(true, TABLE_ETUDIANT, new String[]{
                         "id", "nomEtu", "preEtu", "mailEtu", "telEtu", "adrEtu", "cpEtu", "vilEtu", "logEtu",
-                        "nomMaitre", "preMaitre", "telMaitre", "mailMaitre","nomTut","preTut",
+                        "nomMaitre", "preMaitre", "telMaitre", "mailMaitre","nomTut","preTut","telTut",
                         "nomEnt", "adrEnt", "cpEnt", "vilEnt"},
                 "id = ?", new String[]{String.valueOf(id)}, null, null, null, null);
 

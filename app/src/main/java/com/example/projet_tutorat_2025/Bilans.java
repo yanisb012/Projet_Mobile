@@ -38,15 +38,6 @@ public class Bilans {
     @SerializedName("sujMem")
     private String sujetmemoire;
 
-    public class DateWrapper {
-        @SerializedName("date")
-        private String date;
-
-        public String getDate() {
-            return date;
-        }
-    }
-
     public int getId() {
         return id;
     }

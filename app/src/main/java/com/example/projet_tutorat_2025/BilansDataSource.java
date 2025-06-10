@@ -13,17 +13,21 @@ public class BilansDataSource {
     private SQLiteDatabase database;
     private DatabaseHelper dbHelper;
 
+    // Constructeur : instancie le helper de base de données
     public BilansDataSource(Context context) {
         dbHelper = new DatabaseHelper(context);
     }
 
+    // Ouvre la base de données en mode écriture
     public void open() throws SQLException {
         database = dbHelper.getWritableDatabase();
     }
 
+    // Ferme la base de données
     public void close() {
         dbHelper.close();
     }
+    // Vérifie si un bilan existe dans la base locale via son ID
     public boolean isBilanExists(int id) {
         Cursor cursor = database.rawQuery("SELECT 1 FROM " + DatabaseHelper.TABLE_BILANS + " WHERE id = ?", new String[]{String.valueOf(id)});
         boolean exists = cursor.moveToFirst();
@@ -46,7 +50,7 @@ public class BilansDataSource {
         values.put("remaBil2", bilans.getRemarque2());
         values.put("sujMem", bilans.getSujetmemoire());
 
-
+        // Exécute la mise à jour
         int rowsUpdated = database.update(DatabaseHelper.TABLE_BILANS, values, "id = ?", new String[]{String.valueOf(bilans.getId())});
 
         if (rowsUpdated > 0) {
@@ -75,9 +79,9 @@ public class BilansDataSource {
         values.put("remaBil2", bilans.getRemarque2());
         values.put("sujMem", bilans.getSujetmemoire());
 
-
+        // Exécution de l'insertion
         int id = (int) database.insert(DatabaseHelper.TABLE_BILANS, null, values);
-        bilans.setId(id);
+        bilans.setId(id); // Met à jour l'ID dans l'objet Java
         if (id == -1) {
             Log.e("DEBUG_BDD", "Insertion échouée pour Bilan !");
         } else {
@@ -87,6 +91,7 @@ public class BilansDataSource {
         return bilans;
     }
 
+    // Convertit un curseur SQLite en objet Bilans Java
     private Bilans cursorToBilan(Cursor cursor) {
         int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
         int idEtu = cursor.getInt(cursor.getColumnIndexOrThrow("id_etudiant"));

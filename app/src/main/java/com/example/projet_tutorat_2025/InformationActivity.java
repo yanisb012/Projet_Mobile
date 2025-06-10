@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,13 +15,14 @@ import androidx.appcompat.app.AppCompatActivity;
 public class InformationActivity extends AppCompatActivity {
 
     private String nomEtu;
+    private int idEtu;
     TextView lienAccueili, lienBilansi;
     ImageView boutonDecoi;
-    private TextView nomEtudiant, prenomEtudiant, emailEtudiant, telEtudiant, adresse;
+    private TextView nomEtudiant, prenomEtudiant, telEtudiant, adresse;
+    private EditText emailEtudiant;
     private TextView nomMaitre, prenomMaitre, telMaitre, mailMaitre;
     private TextView nomEntreprise, adresseEntreprise;
-    private TextView nomTuteur, prenomTuteur;
-    private int idEtu;
+    private TextView nomTuteur, prenomTuteur,telTuteur;
     EtudiantDataSource etudiantBdd = new EtudiantDataSource(this);
 
     @Override
@@ -37,9 +39,11 @@ public class InformationActivity extends AppCompatActivity {
     private void initialisation() {
 
         etudiantBdd.open();
+        //Récupère les données envoyés par MainActivity avec Intent
         idEtu = getIntent().getIntExtra("idEtudiant", -1);
 
 
+        //Lie les id de l'ihm aux attribus définis pour lier les données
         nomEtudiant = findViewById(R.id.nom);
         prenomEtudiant = findViewById(R.id.prenom);
         emailEtudiant = findViewById(R.id.mail);
@@ -56,6 +60,7 @@ public class InformationActivity extends AppCompatActivity {
 
         nomTuteur=findViewById(R.id.nomtut);
         prenomTuteur=findViewById(R.id.pretut);
+        telTuteur=findViewById(R.id.teltut);
 
         Etudiant etudiant = etudiantBdd.getEtudiantById(idEtu);
         if (etudiant != null) {
@@ -76,6 +81,7 @@ public class InformationActivity extends AppCompatActivity {
 
             nomTuteur.setText(etudiant.getNomTuteur());
             prenomTuteur.setText(etudiant.getPrenomTuteur());
+            telTuteur.setText(etudiant.getTelTuteur());
         }
         else {
             nomEtudiant.setText("Aucune donnée à afficher");
@@ -94,6 +100,7 @@ public class InformationActivity extends AppCompatActivity {
 
             nomTuteur.setText("Aucune donnée à afficher");
             prenomTuteur.setText("Aucune donnée à afficher");
+            telTuteur.setText("Aucune donnée à afficher");
         }
 
         View.OnClickListener AccueilListener = v -> {
